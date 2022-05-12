@@ -9,18 +9,49 @@ function dealCards(data){
     const userCard2 = document.querySelector('#uCard2')
     userCard2.src = data.cards[2].image
 
-    console.log(data.cards[0].value)
-    console.log(data.cards[1].value)
-    console.log(data.cards[2].value)
-    console.log(data)
+    const deckId = data.deckId
+    nextAction();
 }
 
 
-function userAction(){
-
+function nextAction(){
+    let hitStayArray = [...document.getElementsByClassName("array")];
+    hitStayArray.forEach(button => {
+        // console.log(button)
+        // console.log(button.id)
+        button.addEventListener("click", userAction)
+    })
 }
 
-//`<img id="uCard1" src="${data.cards[0].image} width="100" height="150">`
+
+function userAction(button){
+    console.log(button)
+    console.log(button.path[0].id)
+    console.log(typeof(button))
+    if (button.path[0].id === "hitBtn"){
+       hitButton();
+    }
+    if (button.path[0].id === "stayBtn"){
+        stayButton();
+    }
+}
+
+function hitButton(){
+    console.log("worked")
+    // fetch(`http://deckofcardsapi.com/api/deck/${deckId}/draw/?count=5`)
+    // const userCard3 = document.querySelector('#uCard3')
+    // userCard3.src = data.cards[0].image
+}
+
+
+
+
+function stayButton(){
+    console.log("worked")
+    // const stayBtn = document.querySelector("#stayBtn")
+    // stayBtn.addEventListener("click", stayButton)
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const dealBtn = document.querySelector("#dealBtn");
