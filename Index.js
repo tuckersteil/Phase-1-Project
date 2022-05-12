@@ -40,10 +40,18 @@ function userAction(button){
 function hitButton(){
     console.log("Hit worked")
     console.log(deckId)
-    //console.log(deckId)
-    // fetch(`http://deckofcardsapi.com/api/deck/${deckId}/draw/?count=5`)
-    // const userCard3 = document.querySelector('#uCard3')
-    // userCard3.src = data.cards[0].image
+    fetch(`http://deckofcardsapi.com/api/deck/${deckId}/draw/?count=5`)
+        .then(response => response.json())
+        .then(data => userHitCards(data))
+}
+
+function userHitCards(data){
+    console.log(data)
+    if (data === data){
+        const userCard3 = document.querySelector('#uCard3')
+        userCard3.src = data.cards[0].image
+    }
+    
 }
 
 
