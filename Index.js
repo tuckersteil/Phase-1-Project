@@ -1,16 +1,10 @@
-// function dataValue(data){
-//     const deckId = data.deck_id
-//     console.log(data)
-//     console.log(deckId)
-//     dealCards(data)
-//     return deckId
-// }
 let deckId
 let count = 1
 let userCard3
 let userCard4
 function dealCards(data){
     console.log(data)
+    
     const userCard1 = document.querySelector('#uCard1')
     userCard1.src = data.cards[0].image
 
@@ -34,6 +28,25 @@ function dealCards(data){
 
     const userCard7 = document.querySelector('#uCard7')
     userCard7.src = data.cards[7].image
+
+    // const dealerCard2 = document.querySelector('#dCard2')
+    // dealerCard2.src = data.cards[8].image
+
+    const dealerCard3 = document.querySelector('#dCard3')
+    dealerCard3.src = data.cards[9].image
+
+    const dealerCard4 = document.querySelector('#dCard4')
+    dealerCard4.src = data.cards[10].image
+
+    const dealerCard5 = document.querySelector('#dCard5')
+    dealerCard5.src = data.cards[11].image
+
+    const dealerCard6 = document.querySelector('#dCard6')
+    dealerCard6.src = data.cards[12].image
+
+    const dealerCard7 = document.querySelector('#dCard7')
+    dealerCard7.src = data.cards[13].image
+
 
     deckId = data.deck_id
     nextAction();
@@ -59,12 +72,6 @@ function userAction(button){
     }
 }
 
-// function hitButton(){
-//     fetch(`http://deckofcardsapi.com/api/deck/${deckId}/draw/?count=14`)
-//         .then(response => response.json())
-//         .then(data => userHitCards(data))
-// }
-
 function userHitCards(){
     increase();
     let test = document.querySelector('#uCard3')
@@ -88,20 +95,6 @@ function userHitCards(){
         test4.classList.remove('hidden')
     }
 
-
-    
-
-    // if (data.remaining <44){
-    //     const userCard4 = document.querySelector('#uCard4')
-    //     userCard4.src = data.cards[count].image
-    //     console.log(count)
-    // }
-    // if (data.remaining <39){
-    //     const userCard5 = document.querySelector('#uCard5')
-    //     userCard5.src = data.cards[count].image
-    //     console.log(count)
-    // }
- 
 }
 
 
