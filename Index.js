@@ -18,6 +18,36 @@ let dCard7
 let cardValue0
 let userCardsValueArrayNew
 let userValue
+function myResetFunc(){
+    console.log("reset was called")
+    let reset = document.getElementById("reset")
+    console.log(reset)
+    reset.addEventListener("click", resetHands)
+}
+
+function resetHands(){
+    let testy = document.getElementById("uCard1")
+    let testy2 = document.getElementById("uCard2")
+    let testy3 = document.getElementById("dCard1")
+    let testy4 = document.getElementById("dCard2")
+    testy.src = "https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612"
+    testy2.src = "https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612"
+    testy3.src = "https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612"
+    testy4.src = "https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612"
+    //dealerCard2.src = "https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612"
+    console.log(testy)
+    console.log(testy3)
+//    let allcards = document.getElementsByClassName("hidden")
+//    let allcardsArray = [...allcards]
+   //allcards.currentSrc = "https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612"
+//    allcardsArray.map(card => {
+//     console.log(card)
+
+//    })
+//    console.log(allcards)
+}
+
+
 function dealCards(data){
     console.log(data)
     
@@ -287,8 +317,6 @@ function stayButton(){
 function dealerTurn(){
     console.log("deal turn")
     document.getElementById("hitBtn").disabled = true;
-    // const dealerCard2 = document.querySelector('#dCard2')
-    // dealerCard2.src = dataValue[8].image
     getDealerValue();
 
 }
@@ -334,7 +362,7 @@ function dealerNextMove(){
     console.log(dealerTotal)
     if(dealerTotal === 21 && dealerTotal === userValue){
         setTimeout(() => {
-            alert("Draw, Deal Again")}, 1000)   
+            alert("Draw, Deal Again")}, 1000) 
     }
     if (dealerTotal === 21 && dealerTotal > userValue){
         setTimeout(() => {
@@ -343,15 +371,17 @@ function dealerNextMove(){
     if(dealerTotal < 21 && dealerTotal >= 17 && dealerTotal > userValue){
         setTimeout(() => {
             alert("Dealer Wins")}, 1000)
-        
+            myResetFunc()
     }
     else if(dealerTotal < 21 && dealerTotal >= 17 && dealerTotal < userValue){
         setTimeout(() => {
-            alert("Congrats You Won!")}, 1000)    
+            alert("Congrats You Won!")}, 1000)  
+            myResetFunc() 
     }
     else if(dealerTotal < 21 && dealerTotal >= 17 && dealerTotal === userValue){
         setTimeout(() => {
-            alert("Draw, Deal Again")}, 1000)    
+            alert("Draw, Deal Again")}, 1000)  
+            myResetFunc()  
     }
     else if (dealerTotal <=16){
         let d3 = document.querySelector('#dCard3')
@@ -376,7 +406,6 @@ function dealerNextMove(){
         else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal > userValue){
             setTimeout(() => {
                 alert("Dealer Wins")}, 1000)
-            
         }
         else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal < userValue){
             setTimeout(() => {
@@ -406,8 +435,7 @@ function dealerNextMove(){
             }
             if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal > userValue){
                 setTimeout(() => {
-                    alert("Dealer Wins")}, 1000)
-                
+                    alert("Dealer Wins")}, 1000)  
             }
             else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal < userValue){
                 setTimeout(() => {
@@ -518,6 +546,7 @@ function dealerNextMove(){
         }
     }
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const dealBtn = document.querySelector("#dealBtn");
