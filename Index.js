@@ -358,6 +358,14 @@ function dealerNextMove(){
         d3.classList.remove('hidden')
         dealerTotal = dealerTotal + parseInt(dealerCardsValueArrayNew[2])
         console.log(dealerTotal)
+        if (dealerTotal > 21 && true === dealerCardsValueArrayNew.includes("11"))
+            for(i=0; i<dealerCardsValueArrayNew.length; i++){
+                if(dealerCardsValueArrayNew[i] === "11"){
+                    dealerCardsValueArrayNew[i] = 1
+                    console.log("changed ace to 1")
+                }
+                dealerTotal = parseInt(dealerCardsValueArrayNew[0]) + parseInt(dealerCardsValueArrayNew[1]) + parseInt(dealerCardsValueArrayNew[2]) 
+            }
         
         if (dealerTotal > 21){
             setTimeout(() => {
@@ -383,6 +391,14 @@ function dealerNextMove(){
             d4.classList.remove('hidden')
             dealerTotal = dealerTotal + parseInt(dealerCardsValueArrayNew[3])
             console.log(dealerTotal)
+            if (dealerTotal > 21 && true === dealerCardsValueArrayNew.includes("11"))
+                for(i=0; i<dealerCardsValueArrayNew.length; i++){
+                    if(dealerCardsValueArrayNew[i] === "11"){
+                        dealerCardsValueArrayNew[i] = 1
+                        console.log("changed ace to 1")
+                }
+                dealerTotal = parseInt(dealerCardsValueArrayNew[0]) + parseInt(dealerCardsValueArrayNew[1]) + parseInt(dealerCardsValueArrayNew[2]) + parseInt(dealerCardsValueArrayNew[3])
+            }
             
             if (dealerTotal > 21){
                 setTimeout(() => {
@@ -403,10 +419,17 @@ function dealerNextMove(){
             }
             else if (dealerTotal <= 16){
                 let d5 = document.querySelector('#dCard5')
-                setTimeout(() => {
-                    d5.classList.remove('hidden')}, 1000)
+                d5.classList.remove('hidden')
                 dealerTotal = dealerTotal + parseInt(dealerCardsValueArrayNew[4])
                 console.log(dealerTotal)
+                if (dealerTotal > 21 && true === dealerCardsValueArrayNew.includes("11"))
+                    for(i=0; i<dealerCardsValueArrayNew.length; i++){
+                        if(dealerCardsValueArrayNew[i] === "11"){
+                            dealerCardsValueArrayNew[i] = 1
+                            console.log("changed ace to 1")
+                }
+                dealerTotal = parseInt(dealerCardsValueArrayNew[0]) + parseInt(dealerCardsValueArrayNew[1]) + parseInt(dealerCardsValueArrayNew[2]) + parseInt(dealerCardsValueArrayNew[3]) + parseInt(dealerCardsValueArrayNew[4])
+            }
 
                 if (dealerTotal > 21){
                     setTimeout(() => {
@@ -428,11 +451,17 @@ function dealerNextMove(){
                 }
                 else if (dealerTotal <= 16){
                     let d6 = document.querySelector('#dCard6')
-                    setTimeout(() => {
-                        d6.classList.remove('hidden')}, 1000)
+                    d6.classList.remove('hidden')
                     dealerTotal = dealerTotal + parseInt(dealerCardsValueArrayNew[5])
                     console.log(dealerTotal)
-    
+                    if (dealerTotal > 21 && true === dealerCardsValueArrayNew.includes("11"))
+                        for(i=0; i<dealerCardsValueArrayNew.length; i++){
+                            if(dealerCardsValueArrayNew[i] === "11"){
+                                dealerCardsValueArrayNew[i] = 1
+                                console.log("changed ace to 1")
+                }
+                dealerTotal = parseInt(dealerCardsValueArrayNew[0]) + parseInt(dealerCardsValueArrayNew[1]) + parseInt(dealerCardsValueArrayNew[2]) + parseInt(dealerCardsValueArrayNew[3]) + parseInt(dealerCardsValueArrayNew[4]) + parseInt(dealerCardsValueArrayNew[5])
+            }
                     if (dealerTotal > 21){
                         setTimeout(() => {
                             alert("Congrats, Dealer Busted. You Won!")}, 1000)
@@ -453,10 +482,17 @@ function dealerNextMove(){
                     }
                     else if (dealerTotal <= 16){
                         let d7 = document.querySelector('#dCard7')
-                        setTimeout(() => {
-                            d7.classList.remove('hidden')}, 1000)
+                        d7.classList.remove('hidden')
                         dealerTotal = dealerTotal + parseInt(dealerCardsValueArrayNew[6])
                         console.log(dealerTotal)
+                        if (dealerTotal > 21 && true === dealerCardsValueArrayNew.includes("11"))
+                        for(i=0; i<dealerCardsValueArrayNew.length; i++){
+                            if(dealerCardsValueArrayNew[i] === "11"){
+                                dealerCardsValueArrayNew[i] = 1
+                                console.log("changed ace to 1")
+                }
+                dealerTotal = parseInt(dealerCardsValueArrayNew[0]) + parseInt(dealerCardsValueArrayNew[1]) + parseInt(dealerCardsValueArrayNew[2]) + parseInt(dealerCardsValueArrayNew[3]) + parseInt(dealerCardsValueArrayNew[4]) + parseInt(dealerCardsValueArrayNew[5]) + parseInt(dealerCardsValueArrayNew[6])
+            }
         
                         if (dealerTotal > 21){
                             setTimeout(() => {
