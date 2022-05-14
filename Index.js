@@ -96,7 +96,7 @@ function userAction(button){
 
 function userHitCards(){
     increase();
-    stayButton();
+    getUserValue();
 
     let test = document.querySelector('#uCard3')
     let test1 = document.querySelector('#uCard4')
@@ -106,6 +106,17 @@ function userHitCards(){
     if (count === 2){
         test.classList.remove('hidden')
         console.log("was Hit once")
+        if (userValue > 21 && true === userCardsValueArrayNew.includes("11"))
+            for(i=0; i<userCardsValueArrayNew.length; i++){
+                if(userCardsValueArrayNew[i] === "11"){
+                    userCardsValueArrayNew[i] = 1
+                    console.log("changed ace to 1")
+                }
+                userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1]) + parseInt(userCardsValueArrayNew[2])
+                console.log(userValue)
+                console.log(userCardsValueArrayNew)
+         }
+
         if (userValue > 21){
             document.getElementById("hitBtn").disabled = true;
             setTimeout(function(){
@@ -116,6 +127,14 @@ function userHitCards(){
     if (count === 3){
         test1.classList.remove('hidden')
         console.log("was Hit twice")
+        if (userValue > 21 && true === userCardsValueArrayNew.includes("11"))
+            for(i=0; i<userCardsValueArrayNew.length; i++){
+                if(userCardsValueArrayNew[i] === "11"){
+                    userCardsValueArrayNew[i] = 1
+                    console.log("changed ace to 1")
+                }
+                userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1]) + parseInt(userCardsValueArrayNew[2]) + parseInt(userCardsValueArrayNew[3])
+            }
         if (userValue > 21){
             document.getElementById("hitBtn").disabled = true;
             setTimeout(function(){
@@ -126,6 +145,14 @@ function userHitCards(){
     if (count === 4){
         test2.classList.remove('hidden')
         console.log("was Hit 3 times")
+        if (userValue > 21 && true === userCardsValueArrayNew.includes("11"))
+            for(i=0; i<userCardsValueArrayNew.length; i++){
+                if(userCardsValueArrayNew[i] === "11"){
+                    userCardsValueArrayNew[i] = 1
+                    console.log("changed ace to 1")
+                }
+                userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1]) + parseInt(userCardsValueArrayNew[2]) + parseInt(userCardsValueArrayNew[3]) + parseInt(userCardsValueArrayNew[4])
+            }
         if (userValue > 21){
             document.getElementById("hitBtn").disabled = true;
             setTimeout(function(){
@@ -136,6 +163,14 @@ function userHitCards(){
     if (count === 5){
         test3.classList.remove('hidden')
         console.log("was Hit 4 times")
+        if (userValue > 21 && true === userCardsValueArrayNew.includes("11"))
+            for(i=0; i<userCardsValueArrayNew.length; i++){
+                if(userCardsValueArrayNew[i] === "11"){
+                    userCardsValueArrayNew[i] = 1
+                    console.log("changed ace to 1")
+                }
+                userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1]) + parseInt(userCardsValueArrayNew[2])+ parseInt(userCardsValueArrayNew[3]) + parseInt(userCardsValueArrayNew[4]) + parseInt(userCardsValueArrayNew[5])
+            }
         if (userValue > 21){
             document.getElementById("hitBtn").disabled = true;
             setTimeout(function(){
@@ -146,6 +181,14 @@ function userHitCards(){
     if (count === 6){
         test4.classList.remove('hidden')
         console.log("was Hit 4 times")
+        if (userValue > 21 && true === userCardsValueArrayNew.includes("11"))
+            for(i=0; i<userCardsValueArrayNew.length; i++){
+                if(userCardsValueArrayNew[i] === "11"){
+                    userCardsValueArrayNew[i] = 1
+                    console.log("changed ace to 1")
+                }
+                userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1]) + parseInt(userCardsValueArrayNew[2]) + parseInt(userCardsValueArrayNew[3]) + parseInt(userCardsValueArrayNew[4]) + parseInt(userCardsValueArrayNew[5]) + parseInt(userCardsValueArrayNew[6])
+            }
         if (userValue > 21){
             document.getElementById("hitBtn").disabled = true;
             setTimeout(function(){
@@ -159,7 +202,7 @@ function userHitCards(){
 
 
 
-function stayButton(){
+function getUserValue(){
     let uCard1 = dataValue[0].value
     let uCard2 = dataValue[2].value
     let uCard3 = dataValue[3].value
@@ -218,10 +261,27 @@ function userCardTotal(){
 
 }
 
+function stayButton(){
+    if(count < 2){
+    getUserValue()
+    userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1])
+    console.log(userValue)
+    dealerTurn();
+    }
+    else{
+        console.log("hgdshgadw")
+        console.log(userValue)
+        dealerTurn();
+    }
+    //dealerTurn();
+}
 
 function dealerTurn(){
     console.log("deal turn")
     document.getElementById("hitBtn").disabled = true;
+    const dealerCard2 = document.querySelector('#dCard2')
+    dealerCard2.src = dataValue[8].image
+
 }
 
 document.addEventListener("DOMContentLoaded", () => {
