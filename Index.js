@@ -1,7 +1,16 @@
 let deckId
+let dataValue
 let count = 1
+let userCard1
+let userCard2
 let userCard3
 let userCard4
+let userCard5
+let userCard6
+let userCard7
+let cardValue0
+let userCardsValueArrayNew
+let userValue
 function dealCards(data){
     console.log(data)
     
@@ -37,7 +46,7 @@ function dealCards(data){
 
     const dealerCard4 = document.querySelector('#dCard4')
     dealerCard4.src = data.cards[10].image
-
+    
     const dealerCard5 = document.querySelector('#dCard5')
     dealerCard5.src = data.cards[11].image
 
@@ -49,10 +58,22 @@ function dealCards(data){
 
 
     deckId = data.deck_id
+    dataValue = data.cards
     nextAction();
 }
 function increase(){
     return count++
+}
+
+function testone(){
+    console.log("worked")
+    console.log(userValue)
+    if (userValue <= 21){
+        dealerTurn()
+    }
+    else{
+        alert("busted")
+    }
 }
 
 function nextAction(){
@@ -72,8 +93,11 @@ function userAction(button){
     }
 }
 
+
 function userHitCards(){
     increase();
+    stayButton();
+
     let test = document.querySelector('#uCard3')
     let test1 = document.querySelector('#uCard4')
     let test2 = document.querySelector('#uCard5')
@@ -81,18 +105,53 @@ function userHitCards(){
     let test4 = document.querySelector('#uCard7')
     if (count === 2){
         test.classList.remove('hidden')
+        console.log("was Hit once")
+        if (userValue > 21){
+            document.getElementById("hitBtn").disabled = true;
+            setTimeout(function(){
+                alert("You Busted")
+            })
+        }
     }
     if (count === 3){
         test1.classList.remove('hidden')
+        console.log("was Hit twice")
+        if (userValue > 21){
+            document.getElementById("hitBtn").disabled = true;
+            setTimeout(function(){
+                alert("You Busted")
+            })
+        }
     }
     if (count === 4){
         test2.classList.remove('hidden')
+        console.log("was Hit 3 times")
+        if (userValue > 21){
+            document.getElementById("hitBtn").disabled = true;
+            setTimeout(function(){
+                alert("You Busted")
+            })
+        }
     }
     if (count === 5){
         test3.classList.remove('hidden')
+        console.log("was Hit 4 times")
+        if (userValue > 21){
+            document.getElementById("hitBtn").disabled = true;
+            setTimeout(function(){
+                alert("You Busted")
+            })
+        }
     }
     if (count === 6){
         test4.classList.remove('hidden')
+        console.log("was Hit 4 times")
+        if (userValue > 21){
+            document.getElementById("hitBtn").disabled = true;
+            setTimeout(function(){
+                alert("You Busted")
+            })
+        }
     }
 
 }
@@ -101,11 +160,69 @@ function userHitCards(){
 
 
 function stayButton(){
-    console.log("Stay worked")
-    // const stayBtn = document.querySelector("#stayBtn")
-    // stayBtn.addEventListener("click", stayButton)
+    let uCard1 = dataValue[0].value
+    let uCard2 = dataValue[2].value
+    let uCard3 = dataValue[3].value
+    let uCard4 = dataValue[4].value
+    let uCard5 = dataValue[5].value
+    let uCard6 = dataValue[6].value
+    let uCard7 = dataValue[7].value
+    let userCardsValueArray = []
+    userCardsValueArray.push(uCard1, uCard2, uCard3, uCard4, uCard5, uCard6, uCard7)
+    userCardsValueArrayNew = []
+    userCardsValueArray.forEach(function (item){
+        if (item === "QUEEN"){
+            item = "10"
+             userCardsValueArrayNew.push(item)
+        }
+        else if (item === "KING"){
+            item = "10"
+             userCardsValueArrayNew.push(item)
+        }
+        else if (item === "JACK"){
+            item = "10"
+             userCardsValueArrayNew.push(item)
+        }
+        else if (item === "ACE"){
+            item = "11"
+            userCardsValueArrayNew.push(item)
+        }
+        else {
+             userCardsValueArrayNew.push(item)
+        } 
+    })
+    userCardTotal();
 }
 
+
+function userCardTotal(){
+    console.log(userCardsValueArrayNew)
+    if (count === 2){
+         userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1]) + parseInt(userCardsValueArrayNew[2])
+    }
+    if (count === 3){
+         userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1]) + parseInt(userCardsValueArrayNew[2]) + parseInt(userCardsValueArrayNew[3])
+    }
+    if (count === 4){
+         userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1]) + parseInt(userCardsValueArrayNew[2]) + parseInt(userCardsValueArrayNew[3]) + parseInt(userCardsValueArrayNew[4])
+    }
+    if (count === 5){
+         userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1]) + parseInt(userCardsValueArrayNew[2]) + parseInt(userCardsValueArrayNew[3]) + parseInt(userCardsValueArrayNew[4]) + parseInt(userCardsValueArrayNew[5])
+    }
+    if (count === 6){
+         userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1]) + parseInt(userCardsValueArrayNew[2]) + parseInt(userCardsValueArrayNew[3]) + parseInt(userCardsValueArrayNew[4]) + parseInt(userCardsValueArrayNew[5]) + parseInt(userCardsValueArrayNew[6])
+    }
+    if (count === 7){
+         userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1]) + parseInt(userCardsValueArrayNew[2]) + parseInt(userCardsValueArrayNew[3]) + parseInt(userCardsValueArrayNew[4]) + parseInt(userCardsValueArrayNew[5]) + parseInt(userCardsValueArrayNew[6]) + parseInt(userCardsValueArrayNew[7])
+    }
+
+}
+
+
+function dealerTurn(){
+    console.log("deal turn")
+    document.getElementById("hitBtn").disabled = true;
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const dealBtn = document.querySelector("#dealBtn");
