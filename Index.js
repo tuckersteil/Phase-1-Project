@@ -8,6 +8,13 @@ let userCard4
 let userCard5
 let userCard6
 let userCard7
+let dCard1
+let dCard2
+let dCard3
+let dCard4
+let dCard5
+let dCard6
+let dCard7
 let cardValue0
 let userCardsValueArrayNew
 let userValue
@@ -262,26 +269,218 @@ function userCardTotal(){
 }
 
 function stayButton(){
+    const dealerCard2 = document.querySelector('#dCard2')
+    dealerCard2.src = dataValue[8].image
     if(count < 2){
     getUserValue()
     userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1])
     console.log(userValue)
     dealerTurn();
     }
-    else{
+    else {
         console.log("hgdshgadw")
         console.log(userValue)
         dealerTurn();
     }
-    //dealerTurn();
 }
 
 function dealerTurn(){
     console.log("deal turn")
     document.getElementById("hitBtn").disabled = true;
-    const dealerCard2 = document.querySelector('#dCard2')
-    dealerCard2.src = dataValue[8].image
+    // const dealerCard2 = document.querySelector('#dCard2')
+    // dealerCard2.src = dataValue[8].image
+    getDealerValue();
 
+}
+
+function getDealerValue(){
+    let dCard1 = dataValue[1].value
+    let dCard2 = dataValue[8].value
+    let dCard3 = dataValue[9].value
+    let dCard4 = dataValue[10].value
+    let dCard5 = dataValue[11].value
+    let dCard6 = dataValue[12].value
+    let dCard7 = dataValue[13].value
+    let dealerCardsValueArray = []
+    dealerCardsValueArray.push(dCard1, dCard2, dCard3, dCard4, dCard5, dCard6, dCard7)
+    dealerCardsValueArrayNew = []
+    dealerCardsValueArray.forEach(function (item){
+        if (item === "QUEEN"){
+            item = "10"
+             dealerCardsValueArrayNew.push(item)
+        }
+        else if (item === "KING"){
+            item = "10"
+             dealerCardsValueArrayNew.push(item)
+        }
+        else if (item === "JACK"){
+            item = "10"
+             dealerCardsValueArrayNew.push(item)
+        }
+        else if (item === "ACE"){
+            item = "11"
+            dealerCardsValueArrayNew.push(item)
+        }
+        else {
+             dealerCardsValueArrayNew.push(item)
+        } 
+    })
+    dealerNextMove()
+    
+ }
+
+function dealerNextMove(){
+    dealerTotal = parseInt(dealerCardsValueArrayNew[0]) + parseInt(dealerCardsValueArrayNew[1])
+    console.log(dealerTotal)
+    if(dealerTotal === 21 && dealerTotal === userValue){
+        setTimeout(() => {
+            alert("Draw, Deal Again")}, 1000)   
+    }
+    if (dealerTotal === 21 && dealerTotal > userValue){
+        setTimeout(() => {
+            alert("Dealer Wins")}, 1000)
+    }
+    if(dealerTotal < 21 && dealerTotal >= 17 && dealerTotal > userValue){
+        setTimeout(() => {
+            alert("Dealer Wins")}, 1000)
+        
+    }
+    else if(dealerTotal < 21 && dealerTotal >= 17 && dealerTotal < userValue){
+        setTimeout(() => {
+            alert("Congrats You Won!")}, 1000)    
+    }
+    else if(dealerTotal < 21 && dealerTotal >= 17 && dealerTotal === userValue){
+        setTimeout(() => {
+            alert("Draw, Deal Again")}, 1000)    
+    }
+    else if (dealerTotal <=16){
+        let d3 = document.querySelector('#dCard3')
+        d3.classList.remove('hidden')
+        dealerTotal = dealerTotal + parseInt(dealerCardsValueArrayNew[2])
+        console.log(dealerTotal)
+        
+        if (dealerTotal > 21){
+            setTimeout(() => {
+                alert("Congrats, Dealer Busted. You Won!")}, 1000)
+        }
+
+
+        else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal > userValue){
+            setTimeout(() => {
+                alert("Dealer Wins")}, 1000)
+            
+        }
+        else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal < userValue){
+            setTimeout(() => {
+                alert("Congrats You Won!")}, 1000)    
+        }
+        else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal === userValue){
+            setTimeout(() => {
+                alert("Draw, Deal Again")}, 1000)    
+        }
+        else if(dealerTotal <= 16){
+            let d4 = document.querySelector('#dCard4')
+            d4.classList.remove('hidden')
+            dealerTotal = dealerTotal + parseInt(dealerCardsValueArrayNew[3])
+            console.log(dealerTotal)
+            
+            if (dealerTotal > 21){
+                setTimeout(() => {
+                    alert("Congrats, Dealer Busted. You Won!")}, 1000)
+            }
+            if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal > userValue){
+                setTimeout(() => {
+                    alert("Dealer Wins")}, 1000)
+                
+            }
+            else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal < userValue){
+                setTimeout(() => {
+                    alert("Congrats You Won!")}, 1000)    
+            }
+            else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal === userValue){
+                setTimeout(() => {
+                    alert("Draw, Deal Again")}, 1000)    
+            }
+            else if (dealerTotal <= 16){
+                let d5 = document.querySelector('#dCard5')
+                setTimeout(() => {
+                    d5.classList.remove('hidden')}, 1000)
+                dealerTotal = dealerTotal + parseInt(dealerCardsValueArrayNew[4])
+                console.log(dealerTotal)
+
+                if (dealerTotal > 21){
+                    setTimeout(() => {
+                        alert("Congrats, Dealer Busted. You Won!")}, 1000)
+                }
+
+                if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal > userValue){
+                    setTimeout(() => {
+                        alert("Dealer Wins")}, 1000)
+                    
+                }
+                else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal < userValue){
+                    setTimeout(() => {
+                        alert("Congrats You Won!")}, 1000)    
+                }
+                else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal === userValue){
+                    setTimeout(() => {
+                        alert("Draw, Deal Again")}, 1000)    
+                }
+                else if (dealerTotal <= 16){
+                    let d6 = document.querySelector('#dCard6')
+                    setTimeout(() => {
+                        d6.classList.remove('hidden')}, 1000)
+                    dealerTotal = dealerTotal + parseInt(dealerCardsValueArrayNew[5])
+                    console.log(dealerTotal)
+    
+                    if (dealerTotal > 21){
+                        setTimeout(() => {
+                            alert("Congrats, Dealer Busted. You Won!")}, 1000)
+                    }
+    
+                    if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal > userValue){
+                        setTimeout(() => {
+                            alert("Dealer Wins")}, 1000)
+                        
+                    }
+                    else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal < userValue){
+                        setTimeout(() => {
+                            alert("Congrats You Won!")}, 1000)    
+                    }
+                    else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal === userValue){
+                        setTimeout(() => {
+                            alert("Draw, Deal Again")}, 1000)    
+                    }
+                    else if (dealerTotal <= 16){
+                        let d7 = document.querySelector('#dCard7')
+                        setTimeout(() => {
+                            d7.classList.remove('hidden')}, 1000)
+                        dealerTotal = dealerTotal + parseInt(dealerCardsValueArrayNew[6])
+                        console.log(dealerTotal)
+        
+                        if (dealerTotal > 21){
+                            setTimeout(() => {
+                                alert("Congrats, Dealer Busted. You Won!")}, 1000)
+                        }
+        
+                        if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal > userValue){
+                            setTimeout(() => {
+                                alert("Dealer Wins")}, 1000)
+                            
+                        }
+                        else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal < userValue){
+                            setTimeout(() => {
+                                alert("Congrats You Won!")}, 1000)    
+                        }
+                        else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal === userValue){
+                            setTimeout(() => {
+                                alert("Draw, Deal Again")}, 1000)    
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
