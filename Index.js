@@ -28,23 +28,33 @@ function myResetFunc(){
 function resetHands(){
     let testy = document.getElementById("uCard1")
     let testy2 = document.getElementById("uCard2")
+    let testy10 = document.getElementById("uCard3")
+    let testy11 = document.getElementById("uCard4")
+    let testy12 = document.getElementById("uCard5")
+    let testy13 = document.getElementById("uCard6")
+    let testy14 = document.getElementById("uCard7")
     let testy3 = document.getElementById("dCard1")
     let testy4 = document.getElementById("dCard2")
+    let testy5 = document.getElementById("dCard3")
+    let testy6 = document.getElementById("dCard4")
+    let testy7 = document.getElementById("dCard5")
+    let testy8 = document.getElementById("dCard6")
+    let testy9 = document.getElementById("dCard7")
     testy.src = "https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612"
     testy2.src = "https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612"
     testy3.src = "https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612"
     testy4.src = "https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612"
-    //dealerCard2.src = "https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612"
-    console.log(testy)
-    console.log(testy3)
-//    let allcards = document.getElementsByClassName("hidden")
-//    let allcardsArray = [...allcards]
-   //allcards.currentSrc = "https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612"
-//    allcardsArray.map(card => {
-//     console.log(card)
+    testy5.classList.add('hidden')
+    testy6.classList.add('hidden')
+    testy7.classList.add('hidden')
+    testy8.classList.add('hidden')
+    testy9.classList.add('hidden')
+    testy10.classList.add('hidden')
+    testy11.classList.add('hidden')
+    testy12.classList.add('hidden')
+    testy13.classList.add('hidden')
+    testy14.classList.add('hidden')
 
-//    })
-//    console.log(allcards)
 }
 
 
@@ -363,10 +373,12 @@ function dealerNextMove(){
     if(dealerTotal === 21 && dealerTotal === userValue){
         setTimeout(() => {
             alert("Draw, Deal Again")}, 1000) 
+            myResetFunc() 
     }
     if (dealerTotal === 21 && dealerTotal > userValue){
         setTimeout(() => {
             alert("Dealer Wins")}, 1000)
+            myResetFunc() 
     }
     if(dealerTotal < 21 && dealerTotal >= 17 && dealerTotal > userValue){
         setTimeout(() => {
@@ -400,20 +412,24 @@ function dealerNextMove(){
         if (dealerTotal > 21){
             setTimeout(() => {
                 alert("Congrats, Dealer Busted. You Won!")}, 1000)
+                myResetFunc() 
         }
 
 
         else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal > userValue){
             setTimeout(() => {
                 alert("Dealer Wins")}, 1000)
+                myResetFunc() 
         }
         else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal < userValue){
             setTimeout(() => {
                 alert("Congrats You Won!")}, 1000)    
+                myResetFunc() 
         }
         else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal === userValue){
             setTimeout(() => {
-                alert("Draw, Deal Again")}, 1000)    
+                alert("Draw, Deal Again")}, 1000)   
+                myResetFunc()  
         }
         else if(dealerTotal <= 16){
             let d4 = document.querySelector('#dCard4')
@@ -432,18 +448,22 @@ function dealerNextMove(){
             if (dealerTotal > 21){
                 setTimeout(() => {
                     alert("Congrats, Dealer Busted. You Won!")}, 1000)
+                    myResetFunc() 
             }
             if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal > userValue){
                 setTimeout(() => {
                     alert("Dealer Wins")}, 1000)  
+                    myResetFunc() 
             }
             else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal < userValue){
                 setTimeout(() => {
-                    alert("Congrats You Won!")}, 1000)    
+                    alert("Congrats You Won!")}, 1000)  
+                    myResetFunc()   
             }
             else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal === userValue){
                 setTimeout(() => {
-                    alert("Draw, Deal Again")}, 1000)    
+                    alert("Draw, Deal Again")}, 1000)   
+                    myResetFunc()  
             }
             else if (dealerTotal <= 16){
                 let d5 = document.querySelector('#dCard5')
@@ -462,20 +482,24 @@ function dealerNextMove(){
                 if (dealerTotal > 21){
                     setTimeout(() => {
                         alert("Congrats, Dealer Busted. You Won!")}, 1000)
+                        myResetFunc() 
                 }
 
                 if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal > userValue){
                     setTimeout(() => {
                         alert("Dealer Wins")}, 1000)
+                        myResetFunc() 
                     
                 }
                 else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal < userValue){
                     setTimeout(() => {
-                        alert("Congrats You Won!")}, 1000)    
+                        alert("Congrats You Won!")}, 1000)   
+                        myResetFunc()  
                 }
                 else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal === userValue){
                     setTimeout(() => {
-                        alert("Draw, Deal Again")}, 1000)    
+                        alert("Draw, Deal Again")}, 1000)   
+                        myResetFunc()  
                 }
                 else if (dealerTotal <= 16){
                     let d6 = document.querySelector('#dCard6')
@@ -493,20 +517,24 @@ function dealerNextMove(){
                     if (dealerTotal > 21){
                         setTimeout(() => {
                             alert("Congrats, Dealer Busted. You Won!")}, 1000)
+                            myResetFunc() 
                     }
     
                     if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal > userValue){
                         setTimeout(() => {
                             alert("Dealer Wins")}, 1000)
+                            myResetFunc() 
                         
                     }
                     else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal < userValue){
                         setTimeout(() => {
-                            alert("Congrats You Won!")}, 1000)    
+                            alert("Congrats You Won!")}, 1000)   
+                            myResetFunc()  
                     }
                     else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal === userValue){
                         setTimeout(() => {
                             alert("Draw, Deal Again")}, 1000)    
+                            myResetFunc() 
                     }
                     else if (dealerTotal <= 16){
                         let d7 = document.querySelector('#dCard7')
@@ -525,20 +553,24 @@ function dealerNextMove(){
                         if (dealerTotal > 21){
                             setTimeout(() => {
                                 alert("Congrats, Dealer Busted. You Won!")}, 1000)
+                                myResetFunc() 
                         }
         
                         if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal > userValue){
                             setTimeout(() => {
                                 alert("Dealer Wins")}, 1000)
+                                myResetFunc() 
                             
                         }
                         else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal < userValue){
                             setTimeout(() => {
-                                alert("Congrats You Won!")}, 1000)    
+                                alert("Congrats You Won!")}, 1000)  
+                                myResetFunc()   
                         }
                         else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal === userValue){
                             setTimeout(() => {
-                                alert("Draw, Deal Again")}, 1000)    
+                                alert("Draw, Deal Again")}, 1000)  
+                                myResetFunc()   
                         }
                     }
                 }
