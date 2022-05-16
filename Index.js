@@ -40,6 +40,7 @@ function resetHands(){
     let testy7 = document.getElementById("dCard5")
     let testy8 = document.getElementById("dCard6")
     let testy9 = document.getElementById("dCard7")
+    let reAddHitBtn = document.getElementById("hitBtn")
     testy.src = "https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612"
     testy2.src = "https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612"
     testy3.src = "https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612"
@@ -54,7 +55,8 @@ function resetHands(){
     testy12.classList.add('hidden')
     testy13.classList.add('hidden')
     testy14.classList.add('hidden')
-
+    reAddHitBtn.disabled = false
+    count = 1
 }
 
 
@@ -166,9 +168,10 @@ function userHitCards(){
 
         if (userValue > 21){
             document.getElementById("hitBtn").disabled = true;
-            setTimeout(function(){
-                alert("You Busted")
-            })
+            setTimeout(() => {
+                alert("You Busted")}, 1000)
+                myResetFunc() 
+                console.log(userValue)
         }
     }
     if (count === 3){
@@ -184,9 +187,10 @@ function userHitCards(){
             }
         if (userValue > 21){
             document.getElementById("hitBtn").disabled = true;
-            setTimeout(function(){
-                alert("You Busted")
-            })
+            setTimeout(() => {
+                alert("You Busted")}, 1000)
+                myResetFunc() 
+                console.log(userValue)
         }
     }
     if (count === 4){
@@ -202,9 +206,10 @@ function userHitCards(){
             }
         if (userValue > 21){
             document.getElementById("hitBtn").disabled = true;
-            setTimeout(function(){
-                alert("You Busted")
-            })
+            setTimeout(() => {
+                alert("You Busted")}, 1000)
+                myResetFunc() 
+                console.log(userValue)
         }
     }
     if (count === 5){
@@ -220,9 +225,10 @@ function userHitCards(){
             }
         if (userValue > 21){
             document.getElementById("hitBtn").disabled = true;
-            setTimeout(function(){
-                alert("You Busted")
-            })
+            setTimeout(() => {
+                alert("You Busted")}, 1000)
+                myResetFunc() 
+                console.log(userValue)
         }
     }
     if (count === 6){
@@ -238,9 +244,10 @@ function userHitCards(){
             }
         if (userValue > 21){
             document.getElementById("hitBtn").disabled = true;
-            setTimeout(function(){
-                alert("You Busted")
-            })
+            setTimeout(() => {
+                alert("You Busted")}, 1000)
+                myResetFunc() 
+                console.log(userValue)
         }
     }
 
