@@ -27,10 +27,30 @@ header {
     color: red;
 }
 
-#balance {
+.balance {
     background-color: lightgrey;
     width: 125px;
     border: 15px solid rgb(55, 255, 0);
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+    font-size: 18px;
+    
+}
+.balance2 {
+    background-color: lightgrey;
+    width: 125px;
+    border: 15px solid red;
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+    font-size: 18px;
+    
+}
+.balance3 {
+    background-color: lightgrey;
+    width: 125px;
+    border: 15px solid lightgrey;
     padding: 10px;
     margin: 20px;
     text-align: center;
@@ -63,8 +83,4 @@ button {
 
 .hidden {
     display: none;
-}
-
-.notHidden {
-    src: "https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612";
 }

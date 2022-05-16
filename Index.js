@@ -1,4 +1,5 @@
 let deckId
+
 let dataValue
 let count = 1
 let userCard1
@@ -141,6 +142,22 @@ function userAction(button){
 //     }
 // }
 
+function color(){
+    let userBalance = document.getElementById("total").innerHTML
+    let userColor = document.getElementById("balancethis")
+    console.log(userColor)
+    if (userBalance.includes("-")){
+        //let userColor = document.getElementById("balance")
+        userColor.classList.remove("balance3")
+        userColor.classList.add("balance2")
+    }
+    else {
+        userColor.classList.remove("balance3")
+        userColor.classList.add("balance")
+
+    }
+    
+}
 
 function userWin(){
     let userBalance = document.getElementById("total").innerHTML
@@ -152,6 +169,7 @@ function userWin(){
         console.log(userBalance[1])
         console.log(userBalance[2])
         console.log(worm)
+        color()
     }
     else if (userBalance.length === 4 && userBalance.includes("-")){
         console.log(userBalance)
@@ -161,6 +179,7 @@ function userWin(){
         console.log(userBalance[2])
         console.log(userBalance[3])
         console.log(worm)
+        color()
     }
     else if (userBalance.length === 5 && userBalance.includes("-")){
         console.log(userBalance)
@@ -170,6 +189,7 @@ function userWin(){
         console.log(userBalance[2])
         console.log(userBalance[3])
         console.log(worm)
+        color()
     }
     else if (userBalance.length === 6 && userBalance.includes("-")){
         console.log(userBalance)
@@ -179,6 +199,7 @@ function userWin(){
         console.log(userBalance[2])
         console.log(userBalance[3])
         console.log(worm)
+        color()
     }
 
 else if(userBalance.length === 2 ){
@@ -189,6 +210,7 @@ else if(userBalance.length === 2 ){
     console.log(userBalance[1])
     console.log(userBalance[2])
     console.log(worm)
+    color()
     }
 else if (userBalance.length === 3){
     console.log(userBalance)
@@ -198,6 +220,7 @@ else if (userBalance.length === 3){
     console.log(userBalance[2])
     console.log(userBalance[3])
     console.log(worm)
+    color()
     }
 else if (userBalance.length === 4){
     console.log(userBalance)
@@ -207,6 +230,7 @@ else if (userBalance.length === 4){
     console.log(userBalance[2])
     console.log(userBalance[3])
     console.log(worm)
+    color()
     }
 else if (userBalance.length === 5){
     console.log(userBalance)
@@ -216,6 +240,7 @@ else if (userBalance.length === 5){
     console.log(userBalance[2])
     console.log(userBalance[3])
     console.log(worm)
+    color()
     }
 }
 
@@ -235,6 +260,7 @@ function updateBalance(){
         console.log(userBalance[2])
         console.log(userBalance[3])
         console.log(worm)
+        color()
     }
     else if (userBalance.length === 4 && userBalance.includes("-")){
         console.log(userBalance)
@@ -244,6 +270,7 @@ function updateBalance(){
         console.log(userBalance[2])
         console.log(userBalance[3])
         console.log(worm)
+        color()
     }
     else if (userBalance.length === 5 && userBalance.includes("-")){
         console.log(userBalance)
@@ -253,6 +280,7 @@ function updateBalance(){
         console.log(userBalance[2])
         console.log(userBalance[3])
         console.log(worm)
+        color()
     }
    
 if (userBalance.length === 2 ){
@@ -263,6 +291,7 @@ if (userBalance.length === 2 ){
     console.log(userBalance[1])
     console.log(userBalance[2])
     console.log(worm)
+    color()
     }
 else if (userBalance.length === 3){
     console.log(userBalance)
@@ -272,6 +301,7 @@ else if (userBalance.length === 3){
     console.log(userBalance[2])
     console.log(userBalance[3])
     console.log(worm)
+    color()
     }
 else if (userBalance.length === 4){
     console.log(userBalance)
@@ -281,6 +311,7 @@ else if (userBalance.length === 4){
     console.log(userBalance[2])
     console.log(userBalance[3])
     console.log(worm)
+    color()
     }
 else if (userBalance.length === 5){
     console.log(userBalance)
@@ -290,6 +321,7 @@ else if (userBalance.length === 5){
     console.log(userBalance[2])
     console.log(userBalance[3])
     console.log(worm)
+    color()
     }
 }
 
