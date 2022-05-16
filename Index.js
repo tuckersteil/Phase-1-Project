@@ -18,6 +18,7 @@ let dCard7
 let cardValue0
 let userCardsValueArrayNew
 let userValue
+//let intialBalance = 0
 function myResetFunc(){
     console.log("reset was called")
     let reset = document.getElementById("reset")
@@ -114,17 +115,6 @@ function increase(){
     return count++
 }
 
-function testone(){
-    console.log("worked")
-    console.log(userValue)
-    if (userValue <= 21){
-        dealerTurn()
-    }
-    else{
-        alert("busted")
-    }
-}
-
 function nextAction(){
     let hitStayArray = [...document.getElementsByClassName("array")];
     hitStayArray.forEach(button => {
@@ -141,12 +131,143 @@ function userAction(button){
         stayButton();
     }
 }
+// function testBalance(){
+//     let userBalance = document.getElementById("total").innerHTML
+//     if(userBalance.includes("-")){
 
+//     }
+//     else(){
+
+//     }
+// }
+
+
+function userWin(){
+    let userBalance = document.getElementById("total").innerHTML
+    if(userBalance.length === 3 && userBalance.includes("-")){
+        console.log(userBalance)
+        let worm = "$" + (- parseInt(userBalance[2]) + newValue)
+        document.getElementById("total").innerHTML =  worm
+        console.log(userBalance)
+        console.log(userBalance[1])
+        console.log(userBalance[2])
+        console.log(worm)
+    }
+    else if (userBalance.length === 4 && userBalance.includes("-")){
+        console.log(userBalance)
+        let worm = "$" + (- parseInt(userBalance[2]+userBalance[3]) + newValue)
+        document.getElementById("total").innerHTML =  worm
+        console.log(userBalance)
+        console.log(userBalance[2])
+        console.log(userBalance[3])
+        console.log(worm)
+    }
+    else if (userBalance.length === 5 && userBalance.includes("-")){
+        console.log(userBalance)
+        let worm = "$" + (- parseInt(userBalance[2]+userBalance[3]+userBalance[4]) + newValue)
+        document.getElementById("total").innerHTML =  worm
+        console.log(userBalance)
+        console.log(userBalance[2])
+        console.log(userBalance[3])
+        console.log(worm)
+    }
+    else if (userBalance.length === 6 && userBalance.includes("-")){
+        console.log(userBalance)
+        let worm = "$" + ( parseInt(userBalance[2]+userBalance[3]+userBalance[4]+userBalance[5]) + newValue)
+        document.getElementById("total").innerHTML =  worm
+        console.log(userBalance)
+        console.log(userBalance[2])
+        console.log(userBalance[3])
+        console.log(worm)
+    }
+
+else if(userBalance.length === 2 ){
+    console.log(userBalance)
+    let worm = "$" + (parseInt(userBalance[1]) + newValue)
+    document.getElementById("total").innerHTML =  worm
+    console.log(userBalance)
+    console.log(userBalance[1])
+    console.log(userBalance[2])
+    console.log(worm)
+    }
+else if (userBalance.length === 3){
+    console.log(userBalance)
+    let worm = "$" + (parseInt(userBalance[1]+ userBalance[2]) + newValue)
+    document.getElementById("total").innerHTML =  worm
+    console.log(userBalance)
+    console.log(userBalance[2])
+    console.log(userBalance[3])
+    console.log(worm)
+    }
+else if (userBalance.length === 4){
+    console.log(userBalance)
+    let worm = "$" + (parseInt(userBalance[1]+userBalance[2]+userBalance[3]) + newValue)
+    document.getElementById("total").innerHTML =  worm
+    console.log(userBalance)
+    console.log(userBalance[2])
+    console.log(userBalance[3])
+    console.log(worm)
+    }
+else if (userBalance.length === 5){
+    console.log(userBalance)
+    let worm = "$" + ( parseInt(userBalance[1]+userBalance[2]+userBalance[3]+ userBalance[4]) + newValue)
+    document.getElementById("total").innerHTML =  worm
+    console.log(userBalance)
+    console.log(userBalance[2])
+    console.log(userBalance[3])
+    console.log(worm)
+    }
+}
+
+
+
+
+let newValue = 5
+let userBalance
+function updateBalance(){
+    let userBalance = document.getElementById("total").innerHTML
+    if(userBalance.length === 2 ){
+        console.log(userBalance)
+        let worm = "$" + (parseInt(userBalance[1]) - newValue)
+        document.getElementById("total").innerHTML =  worm
+        console.log(userBalance)
+        console.log(userBalance[1])
+        console.log(userBalance[2])
+        console.log(worm)
+    }
+    else if (userBalance.length === 3){
+        console.log(userBalance)
+        let worm = "$" + (- parseInt(userBalance[2]) - newValue)
+        document.getElementById("total").innerHTML =  worm
+        console.log(userBalance)
+        console.log(userBalance[2])
+        console.log(userBalance[3])
+        console.log(worm)
+    }
+    else if (userBalance.length === 4){
+        console.log(userBalance)
+        let worm = "$" + (- parseInt(userBalance[2]+userBalance[3]) - newValue)
+        document.getElementById("total").innerHTML =  worm
+        console.log(userBalance)
+        console.log(userBalance[2])
+        console.log(userBalance[3])
+        console.log(worm)
+    }
+    else if (userBalance.length === 5){
+        console.log(userBalance)
+        let worm = "$" + (- parseInt(userBalance[2]+userBalance[3]+userBalance[4]) - newValue)
+        document.getElementById("total").innerHTML =  worm
+        console.log(userBalance)
+        console.log(userBalance[2])
+        console.log(userBalance[3])
+        console.log(worm)
+    }
+}
 
 function userHitCards(){
     increase();
     getUserValue();
-
+    //let x = "$5"
     let test = document.querySelector('#uCard3')
     let test1 = document.querySelector('#uCard4')
     let test2 = document.querySelector('#uCard5')
@@ -171,8 +292,9 @@ function userHitCards(){
             setTimeout(() => {
                 alert("You Busted")}, 1000)
                 myResetFunc() 
-                console.log(userValue)
-        }
+                updateBalance()
+                
+        } 
     }
     if (count === 3){
         test1.classList.remove('hidden')
@@ -190,7 +312,8 @@ function userHitCards(){
             setTimeout(() => {
                 alert("You Busted")}, 1000)
                 myResetFunc() 
-                console.log(userValue)
+                updateBalance()
+                
         }
     }
     if (count === 4){
@@ -209,7 +332,8 @@ function userHitCards(){
             setTimeout(() => {
                 alert("You Busted")}, 1000)
                 myResetFunc() 
-                console.log(userValue)
+                updateBalance()
+                
         }
     }
     if (count === 5){
@@ -228,7 +352,8 @@ function userHitCards(){
             setTimeout(() => {
                 alert("You Busted")}, 1000)
                 myResetFunc() 
-                console.log(userValue)
+                updateBalance()
+                
         }
     }
     if (count === 6){
@@ -247,7 +372,8 @@ function userHitCards(){
             setTimeout(() => {
                 alert("You Busted")}, 1000)
                 myResetFunc() 
-                console.log(userValue)
+                updateBalance()
+                
         }
     }
 
@@ -386,16 +512,19 @@ function dealerNextMove(){
         setTimeout(() => {
             alert("Dealer Wins")}, 1000)
             myResetFunc() 
+            updateBalance()
     }
     if(dealerTotal < 21 && dealerTotal >= 17 && dealerTotal > userValue){
         setTimeout(() => {
             alert("Dealer Wins")}, 1000)
             myResetFunc()
+            updateBalance()
     }
     else if(dealerTotal < 21 && dealerTotal >= 17 && dealerTotal < userValue){
         setTimeout(() => {
             alert("Congrats You Won!")}, 1000)  
             myResetFunc() 
+            userWin()
     }
     else if(dealerTotal < 21 && dealerTotal >= 17 && dealerTotal === userValue){
         setTimeout(() => {
@@ -420,6 +549,7 @@ function dealerNextMove(){
             setTimeout(() => {
                 alert("Congrats, Dealer Busted. You Won!")}, 1000)
                 myResetFunc() 
+                userWin()
         }
 
 
@@ -427,11 +557,13 @@ function dealerNextMove(){
             setTimeout(() => {
                 alert("Dealer Wins")}, 1000)
                 myResetFunc() 
+                updateBalance()
         }
         else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal < userValue){
             setTimeout(() => {
                 alert("Congrats You Won!")}, 1000)    
                 myResetFunc() 
+                userWin()
         }
         else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal === userValue){
             setTimeout(() => {
@@ -456,16 +588,19 @@ function dealerNextMove(){
                 setTimeout(() => {
                     alert("Congrats, Dealer Busted. You Won!")}, 1000)
                     myResetFunc() 
+                    userWin()
             }
             if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal > userValue){
                 setTimeout(() => {
                     alert("Dealer Wins")}, 1000)  
                     myResetFunc() 
+                    updateBalance()
             }
             else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal < userValue){
                 setTimeout(() => {
                     alert("Congrats You Won!")}, 1000)  
                     myResetFunc()   
+                    userWin()
             }
             else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal === userValue){
                 setTimeout(() => {
@@ -490,18 +625,21 @@ function dealerNextMove(){
                     setTimeout(() => {
                         alert("Congrats, Dealer Busted. You Won!")}, 1000)
                         myResetFunc() 
+                        userWin()
                 }
 
                 if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal > userValue){
                     setTimeout(() => {
                         alert("Dealer Wins")}, 1000)
                         myResetFunc() 
+                        updateBalance()
                     
                 }
                 else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal < userValue){
                     setTimeout(() => {
                         alert("Congrats You Won!")}, 1000)   
                         myResetFunc()  
+                        userWin()
                 }
                 else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal === userValue){
                     setTimeout(() => {
@@ -525,18 +663,21 @@ function dealerNextMove(){
                         setTimeout(() => {
                             alert("Congrats, Dealer Busted. You Won!")}, 1000)
                             myResetFunc() 
+                            userWin()
                     }
     
                     if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal > userValue){
                         setTimeout(() => {
                             alert("Dealer Wins")}, 1000)
                             myResetFunc() 
+                            updateBalance()
                         
                     }
                     else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal < userValue){
                         setTimeout(() => {
                             alert("Congrats You Won!")}, 1000)   
                             myResetFunc()  
+                            userWin()
                     }
                     else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal === userValue){
                         setTimeout(() => {
@@ -561,18 +702,21 @@ function dealerNextMove(){
                             setTimeout(() => {
                                 alert("Congrats, Dealer Busted. You Won!")}, 1000)
                                 myResetFunc() 
+                                userWin()
                         }
         
                         if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal > userValue){
                             setTimeout(() => {
                                 alert("Dealer Wins")}, 1000)
                                 myResetFunc() 
+                                updateBalance()
                             
                         }
                         else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal < userValue){
                             setTimeout(() => {
                                 alert("Congrats You Won!")}, 1000)  
                                 myResetFunc()   
+                                userWin()
                         }
                         else if(dealerTotal <= 21 && dealerTotal >= 17 && dealerTotal === userValue){
                             setTimeout(() => {
