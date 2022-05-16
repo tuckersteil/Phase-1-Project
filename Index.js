@@ -226,16 +226,8 @@ let newValue = 5
 let userBalance
 function updateBalance(){
     let userBalance = document.getElementById("total").innerHTML
-    if(userBalance.length === 2 ){
-        console.log(userBalance)
-        let worm = "$" + (parseInt(userBalance[1]) - newValue)
-        document.getElementById("total").innerHTML =  worm
-        console.log(userBalance)
-        console.log(userBalance[1])
-        console.log(userBalance[2])
-        console.log(worm)
-    }
-    else if (userBalance.length === 3){
+    
+    if (userBalance.length === 3 && userBalance.includes("-")){
         console.log(userBalance)
         let worm = "$" + (- parseInt(userBalance[2]) - newValue)
         document.getElementById("total").innerHTML =  worm
@@ -244,7 +236,7 @@ function updateBalance(){
         console.log(userBalance[3])
         console.log(worm)
     }
-    else if (userBalance.length === 4){
+    else if (userBalance.length === 4 && userBalance.includes("-")){
         console.log(userBalance)
         let worm = "$" + (- parseInt(userBalance[2]+userBalance[3]) - newValue)
         document.getElementById("total").innerHTML =  worm
@@ -253,7 +245,7 @@ function updateBalance(){
         console.log(userBalance[3])
         console.log(worm)
     }
-    else if (userBalance.length === 5){
+    else if (userBalance.length === 5 && userBalance.includes("-")){
         console.log(userBalance)
         let worm = "$" + (- parseInt(userBalance[2]+userBalance[3]+userBalance[4]) - newValue)
         document.getElementById("total").innerHTML =  worm
@@ -261,6 +253,43 @@ function updateBalance(){
         console.log(userBalance[2])
         console.log(userBalance[3])
         console.log(worm)
+    }
+   
+if (userBalance.length === 2 ){
+    console.log(userBalance)
+    let worm = "$" + (parseInt(userBalance[1]) - newValue)
+    document.getElementById("total").innerHTML =  worm
+    console.log(userBalance)
+    console.log(userBalance[1])
+    console.log(userBalance[2])
+    console.log(worm)
+    }
+else if (userBalance.length === 3){
+    console.log(userBalance)
+    let worm = "$" + (parseInt(userBalance[1]+ userBalance[2]) - newValue)
+    document.getElementById("total").innerHTML =  worm
+    console.log(userBalance)
+    console.log(userBalance[2])
+    console.log(userBalance[3])
+    console.log(worm)
+    }
+else if (userBalance.length === 4){
+    console.log(userBalance)
+    let worm = "$" + (parseInt(userBalance[1]+userBalance[2]+ userBalance[3]) - newValue)
+    document.getElementById("total").innerHTML =  worm
+    console.log(userBalance)
+    console.log(userBalance[2])
+    console.log(userBalance[3])
+    console.log(worm)
+    }
+else if (userBalance.length === 5){
+    console.log(userBalance)
+    let worm = "$" + (parseInt(userBalance[1]+userBalance[2]+userBalance[3]+ userBalance[4]) - newValue)
+    document.getElementById("total").innerHTML =  worm
+    console.log(userBalance)
+    console.log(userBalance[2])
+    console.log(userBalance[3])
+    console.log(worm)
     }
 }
 
