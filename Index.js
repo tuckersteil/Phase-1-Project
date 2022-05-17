@@ -118,6 +118,7 @@ function increase(){
 
 function nextAction(){
     let hitStayArray = [...document.getElementsByClassName("array")];
+    console.log(hitStayArray)
     hitStayArray.forEach(button => {
         button.addEventListener("click", userAction)
     })
@@ -125,6 +126,7 @@ function nextAction(){
 
 
 function userAction(button){
+    console.log(button)
     if (button.path[0].id === "hitBtn"){
        userHitCards();
     }
