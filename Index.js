@@ -127,10 +127,16 @@ function nextAction(){
 
 function userAction(button){
     console.log(button)
-    if (button.path[0].id === "hitBtn"){
-       userHitCards();
+    // if (button.path[0].id === "hitBtn"){
+    //    userHitCards();
+    // }
+    // if (button.path[0].id === "stayBtn"){
+    //     stayButton();
+    // }
+    if (button.target.id === "hitBtn"){
+        userHitCards();
     }
-    if (button.path[0].id === "stayBtn"){
+    if (button.target.id === "stayBtn"){
         stayButton();
     }
 }
