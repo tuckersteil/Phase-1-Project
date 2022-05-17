@@ -22,6 +22,8 @@ let userValue
 //let intialBalance = 0
 function myResetFunc(){
     console.log("reset was called")
+    document.getElementById("dealBtn").disabled = true
+    document.getElementById("stayBtn").disabled = true
     let reset = document.getElementById("reset")
     console.log(reset)
     reset.addEventListener("click", resetHands)
@@ -43,6 +45,8 @@ function resetHands(){
     let testy8 = document.getElementById("dCard6")
     let testy9 = document.getElementById("dCard7")
     let reAddHitBtn = document.getElementById("hitBtn")
+    document.getElementById("dealBtn").disabled = false
+    document.getElementById("stayBtn").disabled = false
     testy.src = "https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612"
     testy2.src = "https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612"
     testy3.src = "https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612"
@@ -529,6 +533,8 @@ function stayButton(){
 function dealerTurn(){
     console.log("deal turn")
     document.getElementById("hitBtn").disabled = true;
+    document.getElementById("stayBtn").disabled = true;
+    document.getElementById("dealBtn").disabled = true;
     getDealerValue();
 
 }
@@ -803,6 +809,7 @@ function dealerNextMove(){
 document.addEventListener("DOMContentLoaded", () => {
     const dealBtn = document.querySelector("#dealBtn");
     dealBtn.addEventListener("click", () => {
+        dealBtn.disabled = true
         fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=14')
         .then(response => response.json())
         .then(data => dealCards(data))
