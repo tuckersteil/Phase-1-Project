@@ -795,7 +795,7 @@ function dealerNextMove(){
 document.addEventListener("DOMContentLoaded", () => {
     const dealBtn = document.querySelector("#dealBtn");
     dealBtn.addEventListener("click", () => {
-        fetch('http://deckofcardsapi.com/api/deck/new/draw/?count=14')
+        fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=14')
         .then(response => response.json())
         .then(data => dealCards(data))
     })
