@@ -1,8 +1,8 @@
 body {
     background-image: url(https://cdn.shopify.com/s/files/1/1279/9999/products/60-6100_lg2_5000x.jpg?v=1571438929);
-    background-size: cover;
-    background-attachment: fixed;
+    background-size: 100%;
     width: 100%
+
 }
 
 header {
