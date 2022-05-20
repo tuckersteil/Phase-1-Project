@@ -1,5 +1,4 @@
 let deckId
-
 let dataValue
 let count = 1
 let userCard1
@@ -19,7 +18,6 @@ let dCard7
 let cardValue0
 let userCardsValueArrayNew
 let userValue
-//let intialBalance = 0
 function myResetFunc(){
     console.log("reset was called")
     document.getElementById("dealBtn").disabled = true
@@ -62,14 +60,62 @@ function resetHands(){
     testy12.classList.add('hidden')
     testy13.classList.add('hidden')
     testy14.classList.add('hidden')
-    //reAddHitBtn.disabled = false
     count = 1
 }
 
 
+
+function displayUserValue(){
+    console.log(dataValue)
+    let uVCard1 = dataValue[0].value
+    let uVCard2 = dataValue[2].value
+    let uVCard3 = dataValue[3].value
+    let uVCard4 = dataValue[4].value
+    let uVCard5 = dataValue[5].value
+    let uVCard6 = dataValue[6].value
+    let uVCard7 = dataValue[7].value
+    let userCardsValueArrayV = []
+    userCardsValueArrayV.push(uVCard1, uVCard2, uVCard3, uVCard4, uVCard5, uVCard6, uVCard7)
+    userCardsValueArrayNewV = []
+    userCardsValueArrayV.forEach(function (item){
+        if (item === "QUEEN"){
+            item = "10"
+             userCardsValueArrayNewV.push(item)
+        }
+        else if (item === "KING"){
+            item = "10"
+             userCardsValueArrayNewV.push(item)
+        }
+        else if (item === "JACK"){
+            item = "10"
+             userCardsValueArrayNewV.push(item)
+        }
+        else if (item === "ACE"){
+            item = "11"
+            userCardsValueArrayNewV.push(item)
+        }
+        else {
+             userCardsValueArrayNewV.push(item)
+        } 
+    })
+    console.log(userCardsValueArrayNewV)
+    
+    userValue = parseInt(userCardsValueArrayNewV[0]) + parseInt(userCardsValueArrayNewV[1])
+    let wear = document.getElementById("userHands")
+    
+    wear.onmouseover = function(){
+        let currentCount = document.getElementById("currentCount")
+        currentCount.innerText = `Current Count: ${userValue}`
+        currentCount.style.display = "block";
+    }
+    wear.onmouseout = function(){
+        currentCount.style.display = "none";
+    }
+}
+    
+
 function dealCards(data){
     console.log(data)
-    
     const userCard1 = document.querySelector('#uCard1')
     userCard1.src = data.cards[0].image
 
@@ -94,8 +140,6 @@ function dealCards(data){
     const userCard7 = document.querySelector('#uCard7')
     userCard7.src = data.cards[7].image
 
-    // const dealerCard2 = document.querySelector('#dCard2')
-    // dealerCard2.src = data.cards[8].image
 
     const dealerCard3 = document.querySelector('#dCard3')
     dealerCard3.src = data.cards[9].image
@@ -132,12 +176,6 @@ function nextAction(){
 
 function userAction(button){
     console.log(button)
-    // if (button.path[0].id === "hitBtn"){
-    //    userHitCards();
-    // }
-    // if (button.path[0].id === "stayBtn"){
-    //     stayButton();
-    // }
     if (button.target.id === "hitBtn"){
         userHitCards();
     }
@@ -145,22 +183,12 @@ function userAction(button){
         stayButton();
     }
 }
-// function testBalance(){
-//     let userBalance = document.getElementById("total").innerHTML
-//     if(userBalance.includes("-")){
-
-//     }
-//     else(){
-
-//     }
-// }
 
 function color(){
     let userBalance = document.getElementById("total").innerHTML
     let userColor = document.getElementById("balancethis")
     console.log(userColor)
     if (userBalance.includes("-")){
-        //let userColor = document.getElementById("balance")
         userColor.classList.remove("balance3")
         userColor.classList.add("balance2")
     }
@@ -341,7 +369,6 @@ else if (userBalance.length === 5){
 function userHitCards(){
     increase();
     getUserValue();
-    //let x = "$5"
     let test = document.querySelector('#uCard3')
     let test1 = document.querySelector('#uCard4')
     let test2 = document.querySelector('#uCard5')
@@ -494,6 +521,9 @@ function getUserValue(){
 
 function userCardTotal(){
     console.log(userCardsValueArrayNew)
+    if (count === 1){
+        userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1])
+    }
     if (count === 2){
          userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1]) + parseInt(userCardsValueArrayNew[2])
     }
@@ -512,7 +542,7 @@ function userCardTotal(){
     if (count === 7){
          userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1]) + parseInt(userCardsValueArrayNew[2]) + parseInt(userCardsValueArrayNew[3]) + parseInt(userCardsValueArrayNew[4]) + parseInt(userCardsValueArrayNew[5]) + parseInt(userCardsValueArrayNew[6]) + parseInt(userCardsValueArrayNew[7])
     }
-
+    //displayUserValue(userValue)
 }
 
 function stayButton(){
@@ -811,10 +841,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const dealBtn = document.querySelector("#dealBtn");
     dealBtn.addEventListener("click", () => {
         dealBtn.disabled = true
+        //displayUserValue()
         document.getElementById("stayBtn").disabled = false
         document.getElementById("hitBtn").disabled = false
         fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=14')
         .then(response => response.json())
         .then(data => dealCards(data))
+        .then(data => displayUserValue(data))
     })
 })
