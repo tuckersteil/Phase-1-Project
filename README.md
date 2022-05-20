@@ -7,6 +7,10 @@ Each participant attempts to beat the dealer by getting a count as close to 21 a
 # Card Values/Scoring
 It is up to each individual player if an ace is worth 1 or 11. Face cards are 10 and any other card is its numbered value.
 
+# Tips 
+1 - At any point (Once the cards are dealt) you may mouse over the "User's Hand" text in red, to see the current value of your hand. 
+2 - If dealer is showing a 6 or less on their first card, its best to stay and try to make them bust. 
+
 # Game Play 
 Step 1: User should start by clicking the "Deal" button to deal out the intial cards. 
 
@@ -25,7 +29,7 @@ Step 5: Player can then hit the "Deal" button to play again and deal out the int
 Step 6: Repeat
 
 # API & Images Used
-https://deckofcardsapi.com
-https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612
-https://cdn.shopify.com/s/files/1/1279/9999/products/60-6100_lg2_5000x.jpg?v=1571438929
+ - https://deckofcardsapi.com
+ - https://media.istockphoto.com/photos/bicycle-rider-back-playing-card-design-picture-id157772536?s=612x612
+ - https://cdn.shopify.com/s/files/1/1279/9999/products/60-6100_lg2_5000x.jpg?v=1571438929
 
