@@ -185,15 +185,24 @@ function userAction(button){
 }
 
 function color(){
+    //console.log(userBalance)
     let userBalance = document.getElementById("total").innerHTML
     let userColor = document.getElementById("balancethis")
     console.log(userColor)
-    if (userBalance.includes("-")){
+
+    if (userBalance === "$0"){
+        userColor.classList.remove("balance")
+        userColor.classList.remove("balance2")
+        userColor.classList.add("balance3")
+    }
+    else if (userBalance.includes("-")){
         userColor.classList.remove("balance3")
+        userColor.classList.remove("balance")
         userColor.classList.add("balance2")
     }
     else {
         userColor.classList.remove("balance3")
+        userColor.classList.remove("balance2")
         userColor.classList.add("balance")
 
     }
