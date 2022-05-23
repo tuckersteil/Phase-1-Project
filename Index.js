@@ -19,11 +19,9 @@ let cardValue0
 let userCardsValueArrayNew
 let userValue
 function myResetFunc(){
-    console.log("reset was called")
     document.getElementById("dealBtn").disabled = true
     document.getElementById("stayBtn").disabled = true
     let reset = document.getElementById("reset")
-    console.log(reset)
     reset.addEventListener("click", resetHands)
 }
 
@@ -66,7 +64,6 @@ function resetHands(){
 
 
 function displayUserValue(){
-    console.log(dataValue)
     let uVCard1 = dataValue[0].value
     let uVCard2 = dataValue[2].value
     let uVCard3 = dataValue[3].value
@@ -98,7 +95,6 @@ function displayUserValue(){
              userCardsValueArrayNewV.push(item)
         } 
     })
-    console.log(userCardsValueArrayNewV)
     
     userValue = parseInt(userCardsValueArrayNewV[0]) + parseInt(userCardsValueArrayNewV[1])
     let wear = document.getElementById("userHands")
@@ -115,7 +111,7 @@ function displayUserValue(){
     
 
 function dealCards(data){
-    console.log(data)
+    
     const userCard1 = document.querySelector('#uCard1')
     userCard1.src = data.cards[0].image
 
@@ -167,7 +163,6 @@ function increase(){
 
 function nextAction(){
     let hitStayArray = [...document.getElementsByClassName("array")];
-    console.log(hitStayArray)
     hitStayArray.forEach(button => {
         button.addEventListener("click", userAction)
     })
@@ -175,7 +170,7 @@ function nextAction(){
 
 
 function userAction(button){
-    console.log(button)
+    
     if (button.target.id === "hitBtn"){
         userHitCards();
     }
@@ -185,10 +180,9 @@ function userAction(button){
 }
 
 function color(){
-    //console.log(userBalance)
     let userBalance = document.getElementById("total").innerHTML
     let userColor = document.getElementById("balancethis")
-    console.log(userColor)
+    
 
     if (userBalance === "$0"){
         userColor.classList.remove("balance")
@@ -212,84 +206,45 @@ function color(){
 function userWin(){
     let userBalance = document.getElementById("total").innerHTML
     if(userBalance.length === 3 && userBalance.includes("-")){
-        console.log(userBalance)
         let worm = "$" + (- parseInt(userBalance[2]) + newValue)
         document.getElementById("total").innerHTML =  worm
-        console.log(userBalance)
-        console.log(userBalance[1])
-        console.log(userBalance[2])
-        console.log(worm)
         color()
     }
     else if (userBalance.length === 4 && userBalance.includes("-")){
-        console.log(userBalance)
         let worm = "$" + (- parseInt(userBalance[2]+userBalance[3]) + newValue)
         document.getElementById("total").innerHTML =  worm
-        console.log(userBalance)
-        console.log(userBalance[2])
-        console.log(userBalance[3])
-        console.log(worm)
         color()
     }
     else if (userBalance.length === 5 && userBalance.includes("-")){
-        console.log(userBalance)
+        
         let worm = "$" + (- parseInt(userBalance[2]+userBalance[3]+userBalance[4]) + newValue)
         document.getElementById("total").innerHTML =  worm
-        console.log(userBalance)
-        console.log(userBalance[2])
-        console.log(userBalance[3])
-        console.log(worm)
         color()
     }
-    else if (userBalance.length === 6 && userBalance.includes("-")){
-        console.log(userBalance)
+    else if (userBalance.length === 6 && userBalance.includes("-")){ 
         let worm = "$" + ( parseInt(userBalance[2]+userBalance[3]+userBalance[4]+userBalance[5]) + newValue)
         document.getElementById("total").innerHTML =  worm
-        console.log(userBalance)
-        console.log(userBalance[2])
-        console.log(userBalance[3])
-        console.log(worm)
         color()
     }
 
 else if(userBalance.length === 2 ){
-    console.log(userBalance)
     let worm = "$" + (parseInt(userBalance[1]) + newValue)
     document.getElementById("total").innerHTML =  worm
-    console.log(userBalance)
-    console.log(userBalance[1])
-    console.log(userBalance[2])
-    console.log(worm)
     color()
     }
 else if (userBalance.length === 3){
-    console.log(userBalance)
     let worm = "$" + (parseInt(userBalance[1]+ userBalance[2]) + newValue)
     document.getElementById("total").innerHTML =  worm
-    console.log(userBalance)
-    console.log(userBalance[2])
-    console.log(userBalance[3])
-    console.log(worm)
     color()
     }
 else if (userBalance.length === 4){
-    console.log(userBalance)
     let worm = "$" + (parseInt(userBalance[1]+userBalance[2]+userBalance[3]) + newValue)
     document.getElementById("total").innerHTML =  worm
-    console.log(userBalance)
-    console.log(userBalance[2])
-    console.log(userBalance[3])
-    console.log(worm)
     color()
     }
 else if (userBalance.length === 5){
-    console.log(userBalance)
     let worm = "$" + ( parseInt(userBalance[1]+userBalance[2]+userBalance[3]+ userBalance[4]) + newValue)
     document.getElementById("total").innerHTML =  worm
-    console.log(userBalance)
-    console.log(userBalance[2])
-    console.log(userBalance[3])
-    console.log(worm)
     color()
     }
 }
@@ -303,74 +258,39 @@ function updateBalance(){
     let userBalance = document.getElementById("total").innerHTML
     
     if (userBalance.length === 3 && userBalance.includes("-")){
-        console.log(userBalance)
         let worm = "$" + (- parseInt(userBalance[2]) - newValue)
         document.getElementById("total").innerHTML =  worm
-        console.log(userBalance)
-        console.log(userBalance[2])
-        console.log(userBalance[3])
-        console.log(worm)
         color()
     }
     else if (userBalance.length === 4 && userBalance.includes("-")){
-        console.log(userBalance)
         let worm = "$" + (- parseInt(userBalance[2]+userBalance[3]) - newValue)
         document.getElementById("total").innerHTML =  worm
-        console.log(userBalance)
-        console.log(userBalance[2])
-        console.log(userBalance[3])
-        console.log(worm)
         color()
     }
     else if (userBalance.length === 5 && userBalance.includes("-")){
-        console.log(userBalance)
         let worm = "$" + (- parseInt(userBalance[2]+userBalance[3]+userBalance[4]) - newValue)
         document.getElementById("total").innerHTML =  worm
-        console.log(userBalance)
-        console.log(userBalance[2])
-        console.log(userBalance[3])
-        console.log(worm)
         color()
     }
    
 if (userBalance.length === 2 ){
-    console.log(userBalance)
     let worm = "$" + (parseInt(userBalance[1]) - newValue)
     document.getElementById("total").innerHTML =  worm
-    console.log(userBalance)
-    console.log(userBalance[1])
-    console.log(userBalance[2])
-    console.log(worm)
     color()
     }
 else if (userBalance.length === 3){
-    console.log(userBalance)
     let worm = "$" + (parseInt(userBalance[1]+ userBalance[2]) - newValue)
     document.getElementById("total").innerHTML =  worm
-    console.log(userBalance)
-    console.log(userBalance[2])
-    console.log(userBalance[3])
-    console.log(worm)
     color()
     }
 else if (userBalance.length === 4){
-    console.log(userBalance)
     let worm = "$" + (parseInt(userBalance[1]+userBalance[2]+ userBalance[3]) - newValue)
     document.getElementById("total").innerHTML =  worm
-    console.log(userBalance)
-    console.log(userBalance[2])
-    console.log(userBalance[3])
-    console.log(worm)
     color()
     }
 else if (userBalance.length === 5){
-    console.log(userBalance)
     let worm = "$" + (parseInt(userBalance[1]+userBalance[2]+userBalance[3]+ userBalance[4]) - newValue)
     document.getElementById("total").innerHTML =  worm
-    console.log(userBalance)
-    console.log(userBalance[2])
-    console.log(userBalance[3])
-    console.log(worm)
     color()
     }
 }
@@ -385,16 +305,12 @@ function userHitCards(){
     let test4 = document.querySelector('#uCard7')
     if (count === 2){
         test.classList.remove('hidden')
-        console.log("was Hit once")
         if (userValue > 21 && true === userCardsValueArrayNew.includes("11"))
             for(i=0; i<userCardsValueArrayNew.length; i++){
                 if(userCardsValueArrayNew[i] === "11"){
                     userCardsValueArrayNew[i] = 1
-                    console.log("changed ace to 1")
                 }
                 userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1]) + parseInt(userCardsValueArrayNew[2])
-                console.log(userValue)
-                console.log(userCardsValueArrayNew)
          }
 
         if (userValue > 21){
@@ -408,12 +324,10 @@ function userHitCards(){
     }
     if (count === 3){
         test1.classList.remove('hidden')
-        console.log("was Hit twice")
         if (userValue > 21 && true === userCardsValueArrayNew.includes("11"))
             for(i=0; i<userCardsValueArrayNew.length; i++){
                 if(userCardsValueArrayNew[i] === "11"){
                     userCardsValueArrayNew[i] = 1
-                    console.log("changed ace to 1")
                 }
                 userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1]) + parseInt(userCardsValueArrayNew[2]) + parseInt(userCardsValueArrayNew[3])
             }
@@ -428,12 +342,10 @@ function userHitCards(){
     }
     if (count === 4){
         test2.classList.remove('hidden')
-        console.log("was Hit 3 times")
         if (userValue > 21 && true === userCardsValueArrayNew.includes("11"))
             for(i=0; i<userCardsValueArrayNew.length; i++){
                 if(userCardsValueArrayNew[i] === "11"){
                     userCardsValueArrayNew[i] = 1
-                    console.log("changed ace to 1")
                 }
                 userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1]) + parseInt(userCardsValueArrayNew[2]) + parseInt(userCardsValueArrayNew[3]) + parseInt(userCardsValueArrayNew[4])
             }
@@ -448,12 +360,10 @@ function userHitCards(){
     }
     if (count === 5){
         test3.classList.remove('hidden')
-        console.log("was Hit 4 times")
         if (userValue > 21 && true === userCardsValueArrayNew.includes("11"))
             for(i=0; i<userCardsValueArrayNew.length; i++){
                 if(userCardsValueArrayNew[i] === "11"){
                     userCardsValueArrayNew[i] = 1
-                    console.log("changed ace to 1")
                 }
                 userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1]) + parseInt(userCardsValueArrayNew[2])+ parseInt(userCardsValueArrayNew[3]) + parseInt(userCardsValueArrayNew[4]) + parseInt(userCardsValueArrayNew[5])
             }
@@ -468,12 +378,10 @@ function userHitCards(){
     }
     if (count === 6){
         test4.classList.remove('hidden')
-        console.log("was Hit 4 times")
         if (userValue > 21 && true === userCardsValueArrayNew.includes("11"))
             for(i=0; i<userCardsValueArrayNew.length; i++){
                 if(userCardsValueArrayNew[i] === "11"){
                     userCardsValueArrayNew[i] = 1
-                    console.log("changed ace to 1")
                 }
                 userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1]) + parseInt(userCardsValueArrayNew[2]) + parseInt(userCardsValueArrayNew[3]) + parseInt(userCardsValueArrayNew[4]) + parseInt(userCardsValueArrayNew[5]) + parseInt(userCardsValueArrayNew[6])
             }
@@ -529,7 +437,6 @@ function getUserValue(){
 
 
 function userCardTotal(){
-    console.log(userCardsValueArrayNew)
     if (count === 1){
         userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1])
     }
@@ -551,7 +458,6 @@ function userCardTotal(){
     if (count === 7){
          userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1]) + parseInt(userCardsValueArrayNew[2]) + parseInt(userCardsValueArrayNew[3]) + parseInt(userCardsValueArrayNew[4]) + parseInt(userCardsValueArrayNew[5]) + parseInt(userCardsValueArrayNew[6]) + parseInt(userCardsValueArrayNew[7])
     }
-    //displayUserValue(userValue)
 }
 
 function stayButton(){
@@ -560,18 +466,14 @@ function stayButton(){
     if(count < 2){
     getUserValue()
     userValue = parseInt(userCardsValueArrayNew[0]) + parseInt(userCardsValueArrayNew[1])
-    console.log(userValue)
     dealerTurn();
     }
     else {
-        console.log("hgdshgadw")
-        console.log(userValue)
         dealerTurn();
     }
 }
 
 function dealerTurn(){
-    console.log("deal turn")
     document.getElementById("hitBtn").disabled = true;
     document.getElementById("stayBtn").disabled = true;
     document.getElementById("dealBtn").disabled = true;
@@ -617,7 +519,6 @@ function getDealerValue(){
 
 function dealerNextMove(){
     dealerTotal = parseInt(dealerCardsValueArrayNew[0]) + parseInt(dealerCardsValueArrayNew[1])
-    console.log(dealerTotal)
     if(dealerTotal === 21 && dealerTotal === userValue){
         setTimeout(() => {
             alert("Draw, Deal Again")}, 1000) 
@@ -650,12 +551,10 @@ function dealerNextMove(){
         let d3 = document.querySelector('#dCard3')
         d3.classList.remove('hidden')
         dealerTotal = dealerTotal + parseInt(dealerCardsValueArrayNew[2])
-        console.log(dealerTotal)
         if (dealerTotal > 21 && true === dealerCardsValueArrayNew.includes("11"))
             for(i=0; i<dealerCardsValueArrayNew.length; i++){
                 if(dealerCardsValueArrayNew[i] === "11"){
                     dealerCardsValueArrayNew[i] = 1
-                    console.log("changed ace to 1")
                 }
                 dealerTotal = parseInt(dealerCardsValueArrayNew[0]) + parseInt(dealerCardsValueArrayNew[1]) + parseInt(dealerCardsValueArrayNew[2]) 
             }
@@ -689,12 +588,10 @@ function dealerNextMove(){
             let d4 = document.querySelector('#dCard4')
             d4.classList.remove('hidden')
             dealerTotal = dealerTotal + parseInt(dealerCardsValueArrayNew[3])
-            console.log(dealerTotal)
             if (dealerTotal > 21 && true === dealerCardsValueArrayNew.includes("11"))
                 for(i=0; i<dealerCardsValueArrayNew.length; i++){
                     if(dealerCardsValueArrayNew[i] === "11"){
                         dealerCardsValueArrayNew[i] = 1
-                        console.log("changed ace to 1")
                 }
                 dealerTotal = parseInt(dealerCardsValueArrayNew[0]) + parseInt(dealerCardsValueArrayNew[1]) + parseInt(dealerCardsValueArrayNew[2]) + parseInt(dealerCardsValueArrayNew[3])
             }
@@ -726,12 +623,10 @@ function dealerNextMove(){
                 let d5 = document.querySelector('#dCard5')
                 d5.classList.remove('hidden')
                 dealerTotal = dealerTotal + parseInt(dealerCardsValueArrayNew[4])
-                console.log(dealerTotal)
                 if (dealerTotal > 21 && true === dealerCardsValueArrayNew.includes("11"))
                     for(i=0; i<dealerCardsValueArrayNew.length; i++){
                         if(dealerCardsValueArrayNew[i] === "11"){
                             dealerCardsValueArrayNew[i] = 1
-                            console.log("changed ace to 1")
                 }
                 dealerTotal = parseInt(dealerCardsValueArrayNew[0]) + parseInt(dealerCardsValueArrayNew[1]) + parseInt(dealerCardsValueArrayNew[2]) + parseInt(dealerCardsValueArrayNew[3]) + parseInt(dealerCardsValueArrayNew[4])
             }
@@ -765,12 +660,10 @@ function dealerNextMove(){
                     let d6 = document.querySelector('#dCard6')
                     d6.classList.remove('hidden')
                     dealerTotal = dealerTotal + parseInt(dealerCardsValueArrayNew[5])
-                    console.log(dealerTotal)
                     if (dealerTotal > 21 && true === dealerCardsValueArrayNew.includes("11"))
                         for(i=0; i<dealerCardsValueArrayNew.length; i++){
                             if(dealerCardsValueArrayNew[i] === "11"){
                                 dealerCardsValueArrayNew[i] = 1
-                                console.log("changed ace to 1")
                 }
                 dealerTotal = parseInt(dealerCardsValueArrayNew[0]) + parseInt(dealerCardsValueArrayNew[1]) + parseInt(dealerCardsValueArrayNew[2]) + parseInt(dealerCardsValueArrayNew[3]) + parseInt(dealerCardsValueArrayNew[4]) + parseInt(dealerCardsValueArrayNew[5])
             }
@@ -803,12 +696,10 @@ function dealerNextMove(){
                         let d7 = document.querySelector('#dCard7')
                         d7.classList.remove('hidden')
                         dealerTotal = dealerTotal + parseInt(dealerCardsValueArrayNew[6])
-                        console.log(dealerTotal)
                         if (dealerTotal > 21 && true === dealerCardsValueArrayNew.includes("11"))
                         for(i=0; i<dealerCardsValueArrayNew.length; i++){
                             if(dealerCardsValueArrayNew[i] === "11"){
                                 dealerCardsValueArrayNew[i] = 1
-                                console.log("changed ace to 1")
                 }
                 dealerTotal = parseInt(dealerCardsValueArrayNew[0]) + parseInt(dealerCardsValueArrayNew[1]) + parseInt(dealerCardsValueArrayNew[2]) + parseInt(dealerCardsValueArrayNew[3]) + parseInt(dealerCardsValueArrayNew[4]) + parseInt(dealerCardsValueArrayNew[5]) + parseInt(dealerCardsValueArrayNew[6])
             }
@@ -850,7 +741,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const dealBtn = document.querySelector("#dealBtn");
     dealBtn.addEventListener("click", () => {
         dealBtn.disabled = true
-        //displayUserValue()
         document.getElementById("stayBtn").disabled = false
         document.getElementById("hitBtn").disabled = false
         fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=14')
